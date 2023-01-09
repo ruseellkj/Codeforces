@@ -7,40 +7,25 @@ int main()
     cin >> tt;
     while (tt--)
     {
-        int n;
-        cin >> n;
-        int count = 0;
-        if (n % 10 != 0)
-        {
-            cout << n % 10 << " ";
-            count++;
-        }
-        int ans = n % 10;
-        n = n - ans;
+        string s;
+        cin >> s;
+        vector<int> res;
+        // int r = res.size();
+        int len = s.size();
+        for(int i =0; i<len; i++){
+            if(s[i] != '0'){
+                int last_Count = len - i -1;
+                int num = (s[i]-'0')*pow(10,last_Count);
+                res.push_back(num);
 
-        if (n % 100 != 0)
-        {
-            cout << n % 100 << " ";
-            count++;
+            }
         }
-        ans = n % 100;
-        n = n - ans;
-
-        if (n % 1000 != 0)
-        {
-            cout << n % 1000 << " ";
-            count++;
+        
+        cout << res.size() << endl;
+        for(auto value : res){
+            cout << value << " ";
+            cout << endl;
         }
-        ans = n % 1000;
-        n = n - ans;
-
-        if (n % 10000 != 0)
-        {
-            cout << n % 10000 << " ";
-            count++;
-        }
-        cout << count;
     }
 
-    // cout << endl;
 }
